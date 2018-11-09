@@ -1,5 +1,5 @@
 <?php
-
+use App\Role;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,9 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/admin',function(){
+	return view('admin.index');
+});
+// Route::get('addrole',function(){
+// 	Role::create(['name'=>'waiter']);
+// });
