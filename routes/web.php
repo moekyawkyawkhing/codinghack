@@ -18,9 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('/admin',function(){
-	return view('admin.index');
-});
+
+Route::resource('admin/user','AdminUserController');
 // Route::get('addrole',function(){
 // 	Role::create(['name'=>'waiter']);
 // });
