@@ -12,14 +12,16 @@ use App\Role;
 */
 
 Route::get('/', function () {
+	// $user=Auth::user();
+ //    echo $user->isAdmin();
     return view('home');
 });
 
 Auth::routes();
 
+Route::group(['middleware'=>['isadmin']],function(){
+	Route::resource('admin/user','AdminUserController');
+});
+
 Route::get('/home', 'HomeController@index');
 
-Route::resource('admin/user','AdminUserController');
-// Route::get('addrole',function(){
-// 	Role::create(['name'=>'waiter']);
-// });
