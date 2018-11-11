@@ -9,7 +9,7 @@
 
 			{!!Form::open(['method'=>'POST','action'=>'AdminCategoryController@store'])!!}
 				{!!Form::label('name','Name:')!!}
-				{!!Form::text('cat',null,['class'=>'form-control'])!!}<br>
+				{!!Form::text('name',null,['class'=>'form-control'])!!}<br>
 				@if($errors->has('name'))
 					<span style="color:red;">{{$errors->first('name')}}</span><br>
 				@endif

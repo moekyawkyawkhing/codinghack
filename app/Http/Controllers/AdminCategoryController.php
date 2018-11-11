@@ -26,7 +26,8 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        //
+        $cat=Category::all();
+        return view('admin.category.index',compact('cat'));
     }
 
     /**
@@ -38,7 +39,7 @@ class AdminCategoryController extends Controller
     public function store(FormCategoryRequest $request)
     {
         $cat=Category::create([
-            'name'=>$request->get('cat')
+            'name'=>$request->get('name')
         ]);
         return redirect(action('AdminCategoryController@index'));
     }
