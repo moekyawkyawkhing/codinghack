@@ -22,6 +22,7 @@ Auth::routes();
 Route::group(['middleware'=>['isadmin']],function(){
 	Route::resource('admin/user','AdminUserController');
 	Route::resource('admin/post','AdminPostController');
+	Route::resource('admin/category','AdminCategoryController');
 });
 
 Route::get('/home', 'HomeController@index');
