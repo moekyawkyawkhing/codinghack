@@ -23,7 +23,12 @@ Route::group(['middleware'=>['isadmin']],function(){
 	Route::resource('admin/user','AdminUserController');
 	Route::resource('admin/post','AdminPostController');
 	Route::resource('admin/category','AdminCategoryController');
+	Route::resource('admin/media','AdminMediaController');
+	Route::resource('admin/comment','PostCommentController');
+
+	// Route::get('admin/media',['as'=>'admin.media','uses'=>'AdminMediaController@index']);
 });
 
+Route::get('post/{id}',['as'=>'home.post','uses'=>'PostCommentController@post']);
 Route::get('/home', 'HomeController@index');
 

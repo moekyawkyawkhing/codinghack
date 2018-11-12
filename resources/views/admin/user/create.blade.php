@@ -16,7 +16,7 @@
 		@endif
 
 		{!!Form::label('role','role:')!!}
-		{!!Form::select('role',[""=>"---choose role---"]+$role,null,['class'=>'form-control'])!!}
+		{!!Form::select('role',[0=>"---choose role---"]+$role,null,['class'=>'form-control'])!!}
 
 		{!!Form::label('status','status:')!!}
 		{!!Form::select('active',[0=>"No Active",1=>"Active"],null,['class'=>'form-control'])!!}

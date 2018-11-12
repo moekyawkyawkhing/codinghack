@@ -14,7 +14,7 @@ class CreateColumnAtPostsTablePhotoId extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->integer('photo_id')->unsigned()->index();
+            $table->integer('photo_id');
         });
     }
 
