@@ -7,6 +7,7 @@
 			<th>No</th>
 			<th>Owner</th>
 			<th>Email</th>
+			<th>View Reply</th>
 			<th colspan="5">Body</th>
 		</thead>
 		<tbody>
@@ -15,6 +16,7 @@
 					<td>{{$comment->id}}</td>
 					<td>{{$comment->author}}</td>
 					<td>{{$comment->email}}</td>
+					<td><a href="{{url('admin/commentreply')}}">view reply</a></td>
 					<td>{{$comment->body}}</td>
 					<td><a href="{{route('home.post',$comment->post->id)}}">View post</a></td>
 					<td>
