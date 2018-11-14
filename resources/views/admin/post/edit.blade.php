@@ -1,5 +1,6 @@
 @extends('admin')
 @section('content')
+@include('includes.tinyeditor')
 	<h1>Edit Post</h1><hr>
 	@if(session('delete_post'))
 		<p class="alert alert-danger">{{session('delete_post')}}</p>

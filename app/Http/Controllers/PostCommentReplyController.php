@@ -15,8 +15,8 @@ class PostCommentReplyController extends Controller
 
      */
     public function index(){
-        $reply=CommentReply::all();
-        return view('admin.post.comment.reply.index',compact('reply'));
+        $replies=CommentReply::paginate(3);
+        return view('admin.post.comment.reply.index',compact('replies'));
     }
     /**
 

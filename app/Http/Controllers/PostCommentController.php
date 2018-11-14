@@ -10,8 +10,8 @@ use App\Comment;
 class PostCommentController extends Controller
 {
     public function index(){
-    	$comment=Comment::all();
-    	return view('admin.post.comment.index',compact('comment'));
+    	$comments=Comment::paginate(3);
+    	return view('admin.post.comment.index',compact('comments'));
     }
 
     public function post($id){

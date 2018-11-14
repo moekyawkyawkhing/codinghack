@@ -1,6 +1,6 @@
 @extends('admin')
 @section('content')
-			@if(count($comment)>0)
+			@if(count($comments)>0)
 	<h4>View comment list</h4><hr>
 	<table class="table">
 		<thead>
@@ -11,7 +11,7 @@
 			<th colspan="5">Body</th>
 		</thead>
 		<tbody>
-				@foreach($comment as $comment)
+				@foreach($comments as $comment)
 				<tr>
 					<td>{{$comment->id}}</td>
 					<td>{{$comment->author}}</td>
@@ -46,4 +46,9 @@
 			@endif
 		</tbody>
 	</table>
+	<div class="row">
+		<div class="col-md-offset-5">
+			{{$comments->render()}}
+		</div>
+	</div>
 @endsection

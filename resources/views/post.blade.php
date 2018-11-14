@@ -10,13 +10,9 @@
             </p>
             <p><span class="glyphicon glyphicon-time"></span> Posted on {{$post->created_at->diffForHumans()}}</p>
             <hr>
-          	@if($post->photo_id == null)
-          		<img class="img-responsive" src="http://placehold.it/900x300" alt="">
-          		@else
-          		<img src="{{asset('postimage/'.$post->photo->name)}}" width="100%" height="250">
-          	@endif
+          		<img src="{{$post->photo? asset('postimage/'.$post->photo->name): 'http://placehold.it/400×400'}}" width="100%" height="250">
             <hr>
-            <p>{{$post->body}}</p>
+            <p>{!!$post->body!!}</p>
 
 @if(Auth::check())
            	 <!--Comment Form!-->
@@ -34,7 +30,7 @@
     <!-- Comment -->
       <div class="media">
         <a class="pull-left" href="#">
-            <img height="64" class="media-object" src="{{$comment->photo? asset('image/'.$comment->photo) : 'http://placehold.it/400×400'}}" alt="">
+            <img height="64" class="media-object" src="{{Auth::user()->gravatar}}" alt="">
         </a>
         <div class="media-body">
             <h4 class="media-heading">{{$comment->author}}
@@ -48,7 +44,7 @@
             <!-- Nested Comment -->
             <div id="nested-comment" class=" media">
               <a class="pull-left" href="#">
-                  <img height="64" class="media-object" src="{{$reply->photo? asset('image/'.$reply->photo) : 'http://placehold.it//400×400'}}" alt="">
+                  <img height="64" class="media-object" src="{{Auth::user()->gravatar}}" alt="">
               </a>
               <div class="media-body">
                   <h4 class="media-heading">{{$reply->author}}

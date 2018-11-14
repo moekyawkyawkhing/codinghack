@@ -1,6 +1,6 @@
 @extends('admin')
 @section('content')
-			@if(count($reply)>0)
+			@if(count($replies)>0)
 	<h4>View reply list</h4><hr>
 	<table class="table">
 		<thead>
@@ -10,7 +10,7 @@
 			<th colspan="5">Body</th>
 		</thead>
 		<tbody>
-				@foreach($reply as $reply)
+				@foreach($replies as $reply)
 				<tr>
 					<td>{{$reply->id}}</td>
 					<td>{{$reply->author}}</td>
@@ -44,4 +44,9 @@
 			@endif
 		</tbody>
 	</table>
+	<div class="row">
+		<div class="col-md-offset-5">
+			{{$replies->render()}}
+		</div>
+	</div>
 @endsection

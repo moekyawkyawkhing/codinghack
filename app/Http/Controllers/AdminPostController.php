@@ -18,7 +18,7 @@ class AdminPostController extends Controller
      */
     public function index()
     {
-        $post=Post::all();        
+        $post=Post::paginate(2);        
         return view('admin.post.index',compact('post'));
     }
 
@@ -40,8 +40,7 @@ class AdminPostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(FormPostRequest $request)
-    {   
-        $input=$request->all();
+    { 
         $user=Auth::user();
         if($file=$request->file('photo')){
             $file_name=time()."_".$file->getClientOriginalName();
@@ -51,7 +50,13 @@ class AdminPostController extends Controller
         }else{
             $input['photo_id']=null;
         }
-        $user->posts()->create($input);
+
+        Post::create([
+            'user_id'=>$user->id,
+            'category_id'=>$request->get('category_id'),
+            'title'=>$request->get('title'),
+            'body'=>$request->get('body')
+        ]);
 
         return redirect(action('AdminPostController@create'));
     }
