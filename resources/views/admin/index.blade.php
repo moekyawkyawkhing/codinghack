@@ -19,12 +19,7 @@
 		<tbody>
 			@foreach($user as $user)
 			<tr>
-				<td>@if($user->photo)
-						<img src="{{asset('image/'.$user->photo->name)}}" width="50" height="50">
-					@else
-						Not Used
-					@endif
-				</td>
+				<td><img src="{{$user->photo? asset('image/'.$user->photo->name): 'https://via.placeholder.com/150'}}" width="50" height="50"></td>
 				<td><a href="{{route('user.edit',$user->id)}}">{{$user->name}}</a></td>
 				<td>{{$user->email}}</td>
 				<td>{{$user->is_active == 1 ? "Active User":"No Active User"}}</td>

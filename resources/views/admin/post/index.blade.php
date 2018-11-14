@@ -18,7 +18,9 @@
 			<tr>
 				<td><a href="{{route('post.edit',$posts->id)}}">{{$posts->user->name}}</a></td>
 				<td>{{$posts->category? $posts->category->name : "unactorized"}}</td>
-				<td><img class="img-responsive" src="{{$posts->photo? asset('postimage/'.$posts->photo->name) : 'http://placehold.it/400×400'}}" width="50" height="50"></td>
+				<td><img class="img-responsive" src="{{$posts->photo? asset('postimage/'.$posts->photo->name) : 'https://via.placeholder.com/150
+
+C/O https://placeholder.com/'}}" width="50" height="50"></td>
 				<td>{{$posts->title}}</td>
 				<td><a href="{{url('admin/comment')}}">view comment</a></td>
 				<td><a href="{{url('post/'.$posts->id)}}">view post</a></td>

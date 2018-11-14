@@ -28,7 +28,7 @@ Route::group(['middleware'=>['isadmin']],function(){
 	Route::resource('admin/commentreply','PostCommentReplyController');
 	// Route::get('admin/media',['as'=>'admin.media','uses'=>'AdminMediaController@index']);
 });
-
+Route::delete('delete/media','AdminMediaController@deleteMedia');
 Route::get('post/{id}',['as'=>'home.post','uses'=>'PostCommentController@post']);
 Route::post('reply',['as'=>'comment.reply','uses'=>'PostCommentReplyController@createReply']);
 Route::get('/home', 'HomeController@index');
