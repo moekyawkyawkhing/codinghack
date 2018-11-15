@@ -9,8 +9,28 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        // $this->call(UsersTableSeeder::class);
+    public function run(){
+
+  	DB::statement('SET FOREIGN_KEY_CHECKS=0');
+    	DB::table('users')->truncate();
+    	DB::table('posts')->truncate();
+    	DB::table('photos')->truncate();
+    	DB::table('roles')->truncate();
+    	DB::table('categories')->truncate();
+    	DB::table('comments')->truncate();
+    	DB::table('comment_replies')->truncate();
+
+
+    	factory(App\User::class,3)->create()->each(function($user){
+    		$user->posts()->save(factory(App\Post::class)->make());
+    	});
+    	
+    	factory(App\Comment::class,3)->create()->each(function($reply){
+    		$reply->replies()->save(factory(App\CommentReply::class)->make());
+    	});
+
+    	factory(App\Role::class,3)->create();
+    	factory(App\Photo::class,3)->create();
+    	factory(App\Category::class,3)->create();
     }
 }

@@ -16,7 +16,7 @@
 		<tbody>
 			@foreach($post as $posts)
 			<tr>
-				<td><a href="{{route('post.edit',$posts->id)}}">{{$posts->user->name}}</a></td>
+				<td><a href="{{route('post.edit',$posts->id)}}">{{$posts->user?$posts->user->name:'no user'}}</a></td>
 				<td>{{$posts->category? $posts->category->name : "unactorized"}}</td>
 				<td><img class="img-responsive" src="{{$posts->photo? asset('postimage/'.$posts->photo->name) : 'https://via.placeholder.com/150
 
@@ -24,7 +24,7 @@ C/O https://placeholder.com/'}}" width="50" height="50"></td>
 				<td>{{$posts->title}}</td>
 				<td><a href="{{url('admin/comment')}}">view comment</a></td>
 				<td><a href="{{url('post/'.$posts->id)}}">view post</a></td>
-				<td>{!!$posts->body!!}</td>
+				<td>{!!str_limit($posts->body, 50)!!}</td>
 				<td>{{$posts->created_at}}</td>
 				<td>{{$posts->updated_at}}</td>
 			</tr>
